@@ -1,0 +1,26 @@
+baseball2018 <- read.csv("./baseball2018.csv",header=T, row.names=1)
+
+cor(baseball2018$OPS, baseball2018$AVG)
+cor(baseball2018$OPS, baseball2018$RBI)
+cor(baseball2018$OPS,baseball2018$SLG)
+cor(baseball2018$OPS,baseball2018$OBP)
+cor(baseball2018$OPS,baseball2018$HR)
+
+#plot(baseball2018$OPS,baseball2018$AVG,xlab="OPS",ylab="AVG",lwd=2, type="n")
+#text(baseball2018$OPS,baseball2018$AVG)
+#plot(baseball2018$OPS,baseball2018$RBI,xlab="OPS",ylab="RBI",lwd=2, type="n")
+#text(baseball2018$OPS,baseball2018$RBI)
+plot(baseball2018$OPS,baseball2018$SLG,xlab="OPS",ylab="SLG",lwd=2, type="n")
+text(baseball2018$OPS,baseball2018$SLG)
+#plot(baseball2018$OPS,baseball2018$OBP,xlab="OPS",ylab="OBP",lwd=2, type="n")
+#text(baseball2018$OPS,baseball2018$OBP)
+#plot(baseball2018$OPS,baseball2018$HR,xlab="OPS",ylab="HR",lwd=2, type="n")
+#text(baseball2018$OPS,baseball2018$HR)
+
+baseball2018.lm <- lm(SLG~OPS,data=baseball2018)
+summary(baseball2018.lm)
+abline(baseball2018.lm,lwd=2,col=2)
+confint(baseball2018.lm, level=0.95)
+
+predict(baseball2018.lm, interval="confidence", level=0.95)
+predict(baseball2018.lm, interval="prediction", level=0.95)
