@@ -16,3 +16,6 @@ sample4.csvを用いたもの
 
 ## testdata
 testdata.csvを用いたもの
+
+## score
+score.csvを用いたもの
