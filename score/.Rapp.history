@@ -26,3 +26,71 @@ summary(bunkei.pc2)#
 bunkei.pc2$loadings#
 #
 biplot(bunkei.pc2)
+score <- read.csv("./score.csv", header=T, row.names=1)#
+score#
+#
+em <- score[,-c(1,4)]#
+em#
+#
+result <- prcomp(em, scala=T)#
+result#
+#
+result$sdev#
+result$rotation#
+result$center#
+result$scala#
+result$x#
+#
+sweep(result$rotation, MARGIN=2, result$sdev, FUN="*")
+score <- read.csv("./score.csv", header=T, row.names=1)#
+score#
+#
+em <- score[,-c(1,4)]#
+em#
+#
+result <- prcomp(em, scale=T)#
+result#
+#
+result$sdev#
+result$rotation#
+result$center#
+result$scale#
+result$x#
+#
+sweep(result$rotation, MARGIN=2, result$sdev, FUN="*")
+score <- read.csv("./score.csv", header=T, row.names=1)#
+score#
+#
+em <- score[,-c(1,4)]#
+em#
+#
+result <- prcomp(em, scale=T)#
+result#
+#
+result$sdev#
+result$rotation#
+result$center#
+result$scale#
+result$x#
+#
+sweep(result$rotation, MARGIN=2, result$sdev, FUN="*")#
+#
+bplot(result, scale=0)
+score <- read.csv("./score.csv", header=T, row.names=1)#
+score#
+#
+em <- score[,-c(1,4)]#
+em#
+#
+result <- prcomp(em, scale=T)#
+result#
+#
+result$sdev#
+result$rotation#
+result$center#
+result$scale#
+result$x#
+#
+sweep(result$rotation, MARGIN=2, result$sdev, FUN="*")#
+#
+biplot(result, scale=0)
